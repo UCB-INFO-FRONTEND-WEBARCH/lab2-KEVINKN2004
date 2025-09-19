@@ -79,17 +79,63 @@ body {
 @media (max-width: 720px) {
 
   /* GUIDE 1: hide the horizontal nav by default on small screens */
-
+    
   /* GUIDE 2: show the hamburger on small screens */
+  .hamburger { 
+    display: flex;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    margin: 5px 0;
+    background: currentcolor;
+    color: #111;
+    border-radius: 2px;
+  }
 
   /* GUIDE 3: reveal nav when toggled (use ~ combinator) */
-
+  #menu-toggle:checked ~ .nav {
+    transform: translateY(0);
+  }
   /* GUIDE 4: style nav as vertical panel */
+  .nav {
+    position: fixed;
+    flex-direction: column;
+    gap: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    justify-content: start;
+    margin: 0 auto;
+    padding: 14px;
+    gap: 6px;
+    align-items: stretch;
+    background: #fff;
+    border-left: 1px solid #fff;
+    display: flex;
+    border-top: 1px solid #fff;
+
+    transform: translateY(-110%);
+    transition: transform;
+  }
+
+  .nav a {
+    display: block;
+    padding: 12px 10px;
+    border-radius: 8px;
+  }
+
   /* 4-1) How the link inside of nav should be displayed? */  
 
   /* 4-2) Where the nav should be positioned? */
    
 }
+
 /* (Optional) X animation */
 #menu-toggle:checked + .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 #menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
